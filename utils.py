@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
+"""
+License: Apache-2.0
+Author: Qinglong Zhang, Lu Rao
+E-mail: wofmanaf@gmail.com, raoluSmile@gmail.com
+"""
+
 from __future__ import absolute_import, division, print_function
 
 import os
