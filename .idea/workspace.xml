@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3459b14-c764-41c1-a147-91a74be224a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Downloads/alluxio-master/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Downloads/alluxio-master/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Downloads/alluxio-master/NOTICE" beforeDir="false" />
@@ -5419,7 +5420,7 @@
         <counts>
           <entry key="dic_ce" value="1" />
           <entry key="iml" value="1" />
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
           <entry key="py" value="7" />
           <entry key="sh" value="2" />
           <entry key="txt" value="11" />
@@ -5428,7 +5429,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="Markdown" value="1" />
+          <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="Python" value="7" />
         </counts>
@@ -5436,12 +5437,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
+          <entry key="md" value="27" />
           <entry key="py" value="557" />
           <entry key="sh" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Markdown" value="27" />
           <entry key="PLAIN_TEXT" value="45" />
           <entry key="Python" value="556" />
           <entry key="SQL" value="1" />
@@ -5519,6 +5522,7 @@
         <option value="$PROJECT_DIR$/convert_utf8.py" />
         <option value="$PROJECT_DIR$/assign2.py" />
         <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -5568,7 +5572,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541671335875" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541671489882" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -5602,15 +5606,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541663304316</updated>
-      <workItem from="1541663305448" duration="7907000" />
+      <workItem from="1541663305448" duration="8232000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7907000" />
+    <option name="totallyTimeSpent" value="8232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="990" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -5735,7 +5740,9 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor>
+            <caret column="12" selection-start-column="12" selection-end-column="12" />
+          </first_editor>
           <second_editor />
         </state>
       </provider>
