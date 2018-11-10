@@ -28,7 +28,7 @@ def read_dict(path):
         tmp = []
         lineVec = str(line).strip().split('')
         for content in lineVec[1:-1]:
-            # using regular expression to get the word attribute
+            # using regular expression to get the word attributes
             pattern = re.compile(r'([a-z]+).')
             if pattern.match(content):
                 tmp.append(content)
@@ -38,11 +38,11 @@ def read_dict(path):
     return Dict
 
 def print_result(Dict, word):
-    print("original form: " + word)
+    # print("original form: " + word)
     tmpStr = ''
     for inst in Dict[word]:
-        tmpStr += (inst+'\t')
-    print("part of speech: " + tmpStr)
+        tmpStr += (inst+' ')
+    print("original form: {}\t\tpart of speech: {}".format(word, tmpStr))
 
 def main(model=None):
     """Load pre-trained model, set up the pipeline"""
@@ -59,6 +59,7 @@ def main(model=None):
     for token in nlp(doc):
         Inputword = token
         lemma = token.lemma_
+        print("Input word: ", Inputword, end='\t\t')
         if Inputword in Dict.keys():
             print_result(Dict, Inputword)
         elif lemma in Dict.keys():
@@ -68,8 +69,8 @@ def main(model=None):
     print('------------------------------------')
 
 if __name__ == '__main__':
+    # main(model='en')
     while 1:
         main(model='en')
-
 
 
