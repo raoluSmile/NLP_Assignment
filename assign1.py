@@ -42,7 +42,7 @@ def print_result(Dict, word):
     tmpStr = ''
     for inst in Dict[word]:
         tmpStr += (inst+' ')
-    print("original form: {}\t\tpart of speech: {}".format(word, tmpStr))
+    print("original form: {}\t\tpart of speech: {}".format(format(word, '<10'), tmpStr))
 
 def main(model=None):
     """Load pre-trained model, set up the pipeline"""
@@ -59,14 +59,14 @@ def main(model=None):
     for token in nlp(doc):
         Inputword = token
         lemma = token.lemma_
-        print("Input word: ", Inputword, end='\t\t')
+        print("Input word: ", format(str(Inputword), '<10'), end='\t')
         if Inputword in Dict.keys():
             print_result(Dict, Inputword)
         elif lemma in Dict.keys():
             print_result(Dict, lemma)
         else:
-            print("Transformation Failure......")
-    print('------------------------------------')
+            print("Transformation Failure")
+    print('----------------------------------------------')
 
 if __name__ == '__main__':
     # main(model='en')
