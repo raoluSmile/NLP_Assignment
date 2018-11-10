@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # pip install spacy
-# python -m spacy download en_core_web_sm
+# python -m spacy download en
 # -*- coding: UTF-8 -*-
 """
 Task: 形态还原算法,实现一个英语单词还原工具
@@ -16,9 +16,8 @@ E-mail: wofmanaf@gmail.com, raoluSmile@gmail.com
 """
 
 from __future__ import absolute_import, division, print_function
-
-
 import spacy
+import re
 
 file_path = './data/assign/dic_ec.txt'
 
@@ -29,8 +28,11 @@ def read_dict(path):
         tmp = []
         lineVec = str(line).strip().split('')
         for content in lineVec[1:-1]:
-            if '.' in str(content):
+            # using regular expression to get the word attribute
+            pattern = re.compile(r'([a-z]+).')
+            if pattern.match(content):
                 tmp.append(content)
+
         Dict[lineVec[0]] = tmp
 
     return Dict
@@ -42,23 +44,32 @@ def print_result(Dict, word):
         tmpStr += (inst+'\t')
     print("part of speech: " + tmpStr)
 
+def main(model=None):
+    """Load pre-trained model, set up the pipeline"""
+    if model is not None:
+        nlp = spacy.load(model)
+        # print("Loaded model %s" % model)
+    else:
+        nlp = spacy.blank('en')  # create blank Language class
+        # print("Create blank 'en' model")
 
-def main():
     Dict = read_dict(file_path)
-    doc = input("Input an English word: ")
+    doc = input("Input a doc: ")
 
-    nlp = spacy.load('en_core_web_sm')
     for token in nlp(doc):
         Inputword = token
         lemma = token.lemma_
-
-    if Inputword in Dict.keys():
-        print_result(Dict, Inputword)
-    elif lemma in Dict.keys():
-        print_result(Dict, lemma)
-    else:
-        print("Transformation Failure......")
+        if Inputword in Dict.keys():
+            print_result(Dict, Inputword)
+        elif lemma in Dict.keys():
+            print_result(Dict, lemma)
+        else:
+            print("Transformation Failure......")
+    print('------------------------------------')
 
 if __name__ == '__main__':
     while 1:
-        main()
+        main(model='en')
+
+
+
