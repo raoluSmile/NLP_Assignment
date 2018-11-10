@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+# pip install spacy
+# python -m spacy download en_core_web_sm
 # -*- coding: UTF-8 -*-
-
 """
 Task: 形态还原算法,实现一个英语单词还原工具
     1) 输入一个单词;
@@ -16,5 +17,48 @@ E-mail: wofmanaf@gmail.com, raoluSmile@gmail.com
 
 from __future__ import absolute_import, division, print_function
 
-from utils import read_dict
-import time
+
+import spacy
+
+file_path = './data/assign/dic_ec.txt'
+
+def read_dict(path):
+    Dict = {}
+    fd = open(path, 'r')
+    for line in fd.readlines():
+        tmp = []
+        lineVec = str(line).strip().split('')
+        for content in lineVec[1:-1]:
+            if '.' in str(content):
+                tmp.append(content)
+        Dict[lineVec[0]] = tmp
+
+    return Dict
+
+def print_result(Dict, word):
+    print("original form: " + word)
+    tmpStr = ''
+    for inst in Dict[word]:
+        tmpStr += (inst+'\t')
+    print("part of speech: " + tmpStr)
+
+
+def main():
+    Dict = read_dict(file_path)
+    doc = input("Input an English word: ")
+
+    nlp = spacy.load('en_core_web_sm')
+    for token in nlp(doc):
+        Inputword = token
+        lemma = token.lemma_
+
+    if Inputword in Dict.keys():
+        print_result(Dict, Inputword)
+    elif lemma in Dict.keys():
+        print_result(Dict, lemma)
+    else:
+        print("Transformation Failure......")
+
+if __name__ == '__main__':
+    while 1:
+        main()
