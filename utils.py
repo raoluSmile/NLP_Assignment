@@ -30,3 +30,4 @@ def convert_encoding(init_path, fmt):
             data = f.read()
         with open(init_path+fname, 'w', encoding='utf8') as f:
             f.write(data)
+

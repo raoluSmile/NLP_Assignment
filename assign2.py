@@ -77,7 +77,7 @@ class MaxSegmentation(object):
             index -= l
         return word_list
     
-    def BMM(self):
+    def BMM(self, forward, reverse):
         """
         双向最大匹配法是将正向最大匹配法得到的分词结果和逆向最大匹配法的到的结果进行比较，从而决定正确的分词方法。
         启发式规则：
@@ -86,8 +86,7 @@ class MaxSegmentation(object):
                 a.分词结果相同，就说明没有歧义，可返回任意一个。
                 b.分词结果不同，返回其中单字较少的那个。
         """
-        forward = self.ForwardMM()
-        reverse = self.ReverseMM()
+
         total_fmm, total_rmm = len(forward), len(reverse)   # 总词数
         if total_fmm != total_rmm:
             return forward if total_fmm < total_rmm else reverse
@@ -95,8 +94,8 @@ class MaxSegmentation(object):
             if forward == reverse:
                 return forward
             else:
-                f_single_word, r_single_word = self.count_single_words(forward, reverse)    # 单字词数
-                return forward if f_single_word < r_single_word else reverse
+                f_single_word, r_single_word = self.count_single_words(forward), self.count_single_words(reverse)    # 单字词数
+                return forward if f_single_word <= r_single_word else reverse
 
     def count_single_words(self, word_list):
         """
@@ -128,7 +127,7 @@ if __name__ == '__main__':
     rend = time.time()
     print("ReverseMM： {}, running time: {} s".format(r_result, str(rend-rstart)))
     bistart = time.time()
-    bi_result = segment.BMM()
+    bi_result = segment.BMM(f_result, r_result)
     biend = time.time()
-    print("BMM： {}, running time: {} s".format(f_result, str(biend-bistart)))
+    print("BMM： {}, running time: {} s".format(bi_result, str(biend-bistart)))
 
